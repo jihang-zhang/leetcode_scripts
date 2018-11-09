@@ -1,0 +1,8 @@
+# Write your MySQL query statement below
+
+SELECT Employee FROM(
+    SELECT Employee.Name AS Employee, Employee.Salary, Manager.Name AS ManagerName, Manager.Salary AS ManagerSalary
+    FROM Employee
+    JOIN Employee Manager
+    ON Employee.ManagerId = Manager.Id) AS NewTable
+WHERE Salary > ManagerSalary
